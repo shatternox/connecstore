@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,9 @@ class IndexController extends Controller
     public function index(){
         $product = Product::all();
         $category = Category::all();
+        $subCat = SubCategory::all();
 
-        return view('shop.index',compact('product', 'category'));
+        return view('shop.index',compact('product', 'category','subCat'));
     }
 
 
