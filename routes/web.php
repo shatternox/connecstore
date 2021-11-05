@@ -99,6 +99,7 @@ Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 
 // User Routes
 Route::get('/',[IndexController::class, 'index']);
+Route::get('/detail/{ProductID}',[IndexController::class, 'detail']);
 
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     $id = Auth::user()->id;

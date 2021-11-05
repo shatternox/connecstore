@@ -22,6 +22,15 @@ class IndexController extends Controller
 
         return view('shop.index',compact('product', 'category','subCat'));
     }
+    public function detail(Request $request){
+        $product = Product::all();
+        $category = Category::all();
+        $subCat = SubCategory::all();
+        $selectedProduct = Product::where('id',$request->ProductID)->get()->first();
+        // dd($selectedProduct);
+        // dd($request->ProductID);
+        return view('shop.detail',compact('product', 'category','subCat'));
+    }
 
 
     public function UserLogout(){
